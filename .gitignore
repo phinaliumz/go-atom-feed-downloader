@@ -1,3 +1,5 @@
 unzippedFiles/  
 zippedFiles/
 atom-downloader
+go-atom-feed-downloader
+go-atom-feed-downloader\.exe
