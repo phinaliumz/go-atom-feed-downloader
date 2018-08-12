@@ -2,3 +2,5 @@ unzippedFiles/
 zippedFiles/
 geojson/
 atom-downloader
+go-atom-feed-downloader
+go-atom-feed-downloader\.exe
