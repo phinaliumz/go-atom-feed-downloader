@@ -1,0 +1,8 @@
+## Taulun luominen SHP-tiedostosta
+shp2pgsql -s 3389 -p X5213F_kiinteistoraja kiinteistorajat |  psql -h localhost -p 5432 -U sk -d demos
+
+## Shape-tiedostojen lisääminen tiettyyn tauluun (eli yhdistetään eri tiedostot samaksi tasoksi)
+for file in *_kiinteistoraja.shp; do shp2pgsql -s 3389 -D -a "${file/.*}" kiinteistorajat | psql -p 5432 -h localhost -U sk -d demos; done; echo $(date)
+
+## Taulun purkaminen yhdeksi tiedostoksi
+ogr2ogr -f "GeoJSON" geojson/kiinteistorajat.geojson PG:"host=localhost dbname=demos user=sk port=5432" kiinteistorajat; echo $(date)
